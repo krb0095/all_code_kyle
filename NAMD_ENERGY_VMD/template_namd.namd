@@ -1,0 +1,24 @@
+
+structure               temp.psf
+paraTypeCharmm          on
+parameters              /media/bak11//toppar/par_all36_cgenff.prm
+parameters              /media/bak11//toppar/par_all36m_prot.prm
+parameters              /media/bak11//toppar/par_all36_na.prm
+parameters              /media/bak11//toppar/par_all36_carb.prm
+parameters              /media/bak11//toppar/par_all36_lipid.prm
+parameters              /media/bak11//toppar/toppar_water_ions_namd.str
+parameters              /media/bak11//toppar/retinal-pro.str
+parameters              /media/bak11//toppar/retinal-dpro.str
+numsteps                 1
+exclude                  scaled1-4
+outputname               namd-temp
+temperature              0
+COMmotion                yes
+cutoff                   12
+dielectric               1.0
+switchdist               10
+pairInteraction          on
+pairInteractionGroup1 1
+pairInteractionFile   namd-temp.pdb
+pairInteractionSelf              on
+coordinates namd-temp.pdb
