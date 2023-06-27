@@ -1,0 +1,8 @@
+# Kyle Billings 
+# 6/27/23
+
+# here is a list of useful bash commands for my records 
+# turn of error chime 
+bind 'set bell-style none' 
+
+ 
