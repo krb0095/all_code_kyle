@@ -1,6 +1,6 @@
 ### Kyle Billings Ph.D student at WVU mertz lab 
 This github repository is a collection of all the code I have used over my career. I will try to keep this page updated as much as I can, and feel free to reach out if you so choose. The README.md give a brief break down of the codes, files, and directories here. I am in the process of ensuring all of the python codes are PIP3 format and that all other codes are as clear as possible but this will take some time. 
-#### list of files in the base directory 
+### List of files in the base directory 
 | Filename      | content of file |
 |:----------------------------------:|:---------------------------------------:|
 |README.md                           | file for explaining the repository      |
@@ -9,6 +9,9 @@ This github repository is a collection of all the code I have used over my caree
 
 
 [//]: <> (This is a comment in markdown; below is a colasped list)
+
+### Brake down of each folder and the materials inside
+
 <details>
 <summary> stat_find_production </summary>
 <br>
@@ -21,3 +24,21 @@ This github repository is a collection of all the code I have used over my caree
   - check_if_stationary.py
     - python code using Augmented Dickey-Fuller test to verifiy that the data is  stationary (aka at equalbrium) this is a work in progress, beacuse there is some memory isseus depending on the size of the data. 
 </details>
+
+
+<details>
+  <summary> Missing_loop_tool </summary>
+
+  This folder contains the pyton code and an example bash scirpt for modeling missing loops into a protein chain
+  
+  **Contains**
+
+  - genrated_seq_file.py
+    - A python code that takes a user defined PDB file, the chain to work on, and the name of a outfile, and uses the modeller package to create a homology model of the missing loops.
+  - do_all.sh
+    - A bash scirpt example written to loop through a list of PDB files stored locally on the computer, and model in the missing loops
+</details>
+
+
+
+
