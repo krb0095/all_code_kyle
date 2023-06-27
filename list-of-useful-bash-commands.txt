@@ -3,6 +3,14 @@
 
 # here is a list of useful bash commands for my records 
 # turn of error chime 
+# place this in ~/.bash_alias then soruce the .bashrc
 bind 'set bell-style none' 
+
+# ssh with setting the idle time of the call 
+ssh -o ServerAliveInterval=600 [path to server]
+# we can also update the ssh config with 
+"Host *
+ServerAliveInterval 600
+"
 
  
