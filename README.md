@@ -13,6 +13,34 @@ This github repository is a collection of all the code I have used over my caree
 ### Brake down of each folder and the materials inside
 
 <details>
+  <summary> common_analysis </summary>
+
+  This folder contains code that should be run on almost every analyis for a trajecotry
+
+  **Contains**
+  - Vecotr_qunaites.py
+    - This python code is useful for measuring the vector angle between two definded vectors. This code is written to use the libray LOOS to loop over the trajecory given and find the angle between the two user defined vectors . The code takes up tp  6 total commmand line arugmetns byut only 5 are required. We give the program the psf, dcd, name of atom 1 to set that point , name of atom 2 to draw the vecor of the given slection. The selection languge follows the loos syntax and can be more than one atom.
+    - there is four use case for this program :
+      - the 5th argument is 'x' telling the program to use the x axis for the vector angle
+      - the 5th argument is 'y' telling the program to use the y axis for the vector angle
+      - the 5th argument is 'z' telling the program to use the z axis for the vector angle
+      - the 5th argument is the name of another atom of interset and is follwed by another atom to draw the vector to create a new vector 
+  - dcc.py
+    - This python code uses LOOS to load in a trjecotry with structual information and reutrns the dynamic cross correaltion matrix (DCC). This is an indication of correalted movent between residue pairs. (see the explation of DDC for more detial on the theory). The code takes the psf , the slection of tom to prefrom the DCC calcuations on , and any number of trajectory files. The output in a NXN matrix where N is the number of resides with the correaltion of residue pair montion.
+      
+**Explannation of DCC**
+
+DCC is based of the standard pearson correation matrix of the selected atoms for analysis (typlically the C&#x0251; atoms). The following equation is used to compute the DCC.
+
+$$DCC(i,j) = \dfrac{\langle \Delta r_{i}(t) \Delta r_{j}(t) \rangle}{\sqrt{\lVert \langle \Delta r_{i}(t) \rVert \rangle^{2}}\sqrt{\lVert \langle \Delta r_{j}(t) \rVert \rangle^{2}}}$$
+
+Here delta R is defined as change in the postion of the atom at time t from the mean postion of that atom over the trajecotry.
+
+$$\Delta r_{i/j} = r_{i/j}(t) - \langle r_{i/j}(t) \rangle $$
+
+</details>
+
+<details>
 <summary> stat_find_production </summary>
 <br>
   A directory containing code to help in the indentifaction of when production of MD simulations starts.
@@ -22,9 +50,10 @@ This github repository is a collection of all the code I have used over my caree
   - simple_eq_check.py
     - Python code that when given a text file with measurnets will calculate the autocorrelation of the timeseries, returns the estimated frame at to strat analysis. This is done by using takeing a block of the data, finding the standard devation(stdev) of that block, and comparing that stdev to the wanted confidence interval. If that block is not less than the confidence interval another block of data is added untill we are less than the interval.
   - check_if_stationary.py
-    - python code using Augmented Dickey-Fuller test to verifiy that the data is  stationary (aka at equalbrium) this is a work in progress, beacuse there is some memory isseus depending on the size of the data. 
-</details>
+    - python code using Augmented Dickey-Fuller test to verifiy that the data is  stationary (aka at equalbrium) this is a work in progress, beacuse there is some memory isseus depending on the size of the data.
 
+
+</details>
 
 <details>
   <summary> Missing_loop_tool </summary>
