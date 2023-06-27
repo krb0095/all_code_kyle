@@ -62,8 +62,10 @@ This github repository is a collection of all the code I have used over my caree
   This folder containt the VMD tcl files to run namd energy in vmd
 
   **Contains**
-
-  -
+  - target_to_target_namdE.tcl
+    - This tcl code is to be used within VMD to execute namdEnergy. In the commandline it takes the arugemts of psf, dcd, selection 1, selection 2, and name of the file to output. There is one path that is hard coded into the code this time which is the path to the toppar files need to read in the stucture to namd. the solvent radius is set to 1.4 &#x212B; (standard for water as the solvent), the charmm36 cutoff distance (12 &#x212B;), and the charmm36 switch distacne (10 &#x212B;). Feel free to alter these vaules to suit your case
+  - template_namd.namd
+    - namd configeration filewith the basic infromation filled out.
 </details>
 
 
