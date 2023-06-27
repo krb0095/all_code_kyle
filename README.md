@@ -40,5 +40,41 @@ This github repository is a collection of all the code I have used over my caree
 </details>
 
 
+<details>
+  <summary> SS_analysis </summary>
+
+  This folder contains codes for find the SASA and secondary struccture analysis
+
+  **Contains**
+
+  - frame_sasa.tcl
+    - A TCL code ran in VMD to find the solvent-accessible surface area over time of a given range of protein reisude. The code takes command line arguments for the psf, dcd, 1st residue, last resiude, and the prefix of the outfile. The code sources the path to useful function tcl code so the path will have to altered to adjust to your needs.
+  - frame_ss.tcl
+    - A TCL code made to run vmd to find the Secondary strucutre (SS) of residues perframe of the trajecotry. This is done over a user redifned range of residue indexs. This takes the psf, dcd, 1st residue, last reisude and preix of the run. Returns the frame index each resdiues SS and the precent helicity of that selection at a given frame.  The code sources the path to useful function tcl code so the path will have to altered to adjust to your needs.
+  - usefull_fxns.tcl
+    - A TCL set of functions to find the SS and SASA of one frame of a given slection in VMD. Must be soruced into the tcl code used in VMD for analysis.
+
+</details>
+
+<details>
+  <summary> NAMD_ENERGY_VMD </summary>
+
+  This folder containt the VMD tcl files to run namd energy in vmd
+
+  **Contains**
+
+  -
+</details>
 
 
+
+
+
+
+
+
+
+
+
+
+    
