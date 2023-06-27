@@ -1,0 +1,19 @@
+# this is a cheat sheet for git incase i forget 
+
+# new reposatory 
+git init # sets up .git in the folder 
+
+# after we make some sort of change 
+# check status
+git status 
+# commit a change 
+git commit -m -a "TEXT" 
+
+# set up of the SSH KEY 
+ssh-keygen -t rsa -b 4096 -C "krbillings95@gmail.com"
+# add the rsa key to the github in the seetings 
+cat ~/.ssh/id_rsa.pub # print out public key 
+
+# once the key is added add the host we want 
+ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
