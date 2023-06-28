@@ -40,7 +40,7 @@ This github repository is a collection of all the code I have used over my caree
 >
 >$$\Delta r_{i/j} = r_{i/j}(t) - \langle r_{i/j}(t) \rangle $$ 
 >
->![Alt text](https://ars.els-cdn.com/content/image/1-s2.0-S0076687920301488-f02-06-9780128211496.jpg)
+>![example DCC graph](https://github.com/krb0095/all_code_kyle/blob/main/image/Dynamic-cross-correlation-matrix-DCCM-for-C-a-atom-pairs-calculated-with-dccm.png)
 
 </details>
 
@@ -101,6 +101,19 @@ This github repository is a collection of all the code I have used over my caree
     - namd configeration filewith the basic infromation filled out.
 </details>
 
+<details>
+
+  <summary>Installing_loos_conda</summary>
+
+  This file contains two bash scripts to setup both miniconda and [LOOS](https://github.com/GrossfieldLab/loos). 
+
+  **Contains** 
+  - setup_conda.sh
+    - This bash code setups conda using wget. The code will check in wget is installed and if conda is not installed. After this is ture we download the package using wget, run the miniconda.sh file. After following the prompts from the miniconda executable, and **making sure to say yes to the conda init question**, the bashrc is update. We use conda to alter the bashrc once again to not intialize on opening a terminal. run this code with bash setup_conda.sh
+  - setup_loos_conda.sh
+    - This bash script create the LOOS environment. This code follwos the [LOOS](https://github.com/GrossfieldLab/loos/blob/main/INSTALL.md) guide to install the package. In the code we also test the installation of the code using interdist. If the name of the functions is not found the package did not install correactly.
+  
+</details>
 
 
 
