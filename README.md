@@ -27,16 +27,20 @@ This github repository is a collection of all the code I have used over my caree
       - the 5th argument is the name of another atom of interset and is follwed by another atom to draw the vector to create a new vector 
   - dcc.py
     - This python code uses LOOS to load in a trjecotry with structual information and reutrns the dynamic cross correaltion matrix (DCC). This is an indication of correalted movent between residue pairs. (see the explation of DDC for more detial on the theory). The code takes the psf , the slection of tom to prefrom the DCC calcuations on , and any number of trajectory files. The output in a NXN matrix where N is the number of resides with the correaltion of residue pair montion.
-      
-**Explannation of DCC**
 
-DCC is based of the standard pearson correation matrix of the selected atoms for analysis (typlically the C&#x0251; atoms). The following equation is used to compute the DCC.
+<br>
 
-$$DCC(i,j) = \dfrac{\langle \Delta r_{i}(t) \Delta r_{j}(t) \rangle}{\sqrt{\lVert \langle \Delta r_{i}(t) \rVert \rangle^{2}}\sqrt{\lVert \langle \Delta r_{j}(t) \rVert \rangle^{2}}}$$
-
-Here delta R is defined as change in the postion of the atom at time t from the mean postion of that atom over the trajecotry.
-
-$$\Delta r_{i/j} = r_{i/j}(t) - \langle r_{i/j}(t) \rangle $$
+>**Explannation of DCC**
+>
+>DCC is based of the standard pearson correation matrix of the selected atoms for analysis (typlically the C&#x0251; atoms). The following equation is used to compute the DCC.
+>
+>$$DCC(i,j) = \dfrac{\langle \Delta r_{i}(t) \Delta r_{j}(t) \rangle}{\sqrt{\lVert \langle \Delta r_{i}(t) \rVert \rangle^{2}}\sqrt{\lVert \langle \Delta r_{j}(t) \rVert \rangle^{2}}}$$
+>
+>Here delta R is defined as change in the postion of the atom at time t from the mean postion of that atom over the trajecotry.
+>
+>$$\Delta r_{i/j} = r_{i/j}(t) - \langle r_{i/j}(t) \rangle $$ 
+>
+>![Alt text](https://ars.els-cdn.com/content/image/1-s2.0-S0076687920301488-f02-06-9780128211496.jpg)
 
 </details>
 
