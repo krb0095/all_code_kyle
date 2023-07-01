@@ -115,7 +115,25 @@ This github repository is a collection of all the code I have used over my caree
   
 </details>
 
+<details>
 
+  <summary>Loos_unwrap_traj</summary>
+
+  This file contains the code to unwrapp a trajecotry using loos. This way is the classical way of unwrapping a MD trajecotry. Before this set of code VMD was used to unwrapp trajectories, but vmd can not be run on many HPC clusters. This code however can beacuse all you need for LOOS to work is a conda environment. 
+
+  **Contains**
+
+- heuristic_method_unwrap.py
+  - This code uses loos to unwrapp a trajecotry atom by atom of a given selection over the entire trajectory.  See the explanation box for the mathmatically basis of the code.
+- displacment_method_unwrapp.py
+  - This code uses a modified method unwrapp a MD trajecotry. The idea for this code came from this [paper](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00308). The authors make a vaild point in that in constant pressure simualtuions the fluxation of the PBC box size in not accounted for. They show that for NTP simulations new factors have to be added. See the explanation box for the mathmatically basis of the code.
+ 
+  >**Explanation of the heuristic unwrapping method**
+  >
+  > Both of these code use a math trick to reduce the number of for loops needed to check if an atom has crossed the PB.
+  > orthormobic 
+
+</details>
 
 
 
