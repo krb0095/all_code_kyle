@@ -6,6 +6,7 @@ This github repository is a collection of all the code I have used over my caree
 |README.md                           | file for explaining the repository      |
 |git-ssh-cheat-sheet.txt             | lines of code used to set up this github|
 |list-of-useful-bash-commands.txt    | an ever growing list of useful bash code|
+|images                              | the image files used in the readme file |
 
 
 [//]: <> (This is a comment in markdown; below is a colasped list)
