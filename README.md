@@ -134,6 +134,8 @@ This github repository is a collection of all the code I have used over my caree
 > Both of these codes use a math trick to reduce the number of for loops needed to check if an atom has crossed the periodic boundry (PB).
 >
 > The code makes use of math devloped for orthormobic, aka. cubic, cystral latices by the use of a floor function.
+>
+>
 > ![cubic lattice unit cell](https://github.com/krb0095/all_code_kyle/blob/main/image/cubic_lattic.png)
 >
 > This however limits the apllication to, the most common, rectanular unit cell
