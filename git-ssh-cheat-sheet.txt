@@ -12,7 +12,7 @@ git add "name of files"
 git commit -m -a "TEXT" 
 
 # set up of the SSH KEY 
-ssh-keygen -t rsa -b 4096 -C "krbillings95@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "EMAIL"
 # add the rsa key to the github in the seetings 
 cat ~/.ssh/id_rsa.pub # print out public key 
 
@@ -20,7 +20,7 @@ cat ~/.ssh/id_rsa.pub # print out public key
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 # git setup the oring to work from 
-git remote add origin git@github.com:krb0095/all_code_kyle.git
+git remote add origin git@github.com:[REP NAME]
 
 # git push
 git push -u origin [branch_name]
