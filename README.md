@@ -10,7 +10,7 @@ This github repository is a collection of all the code I have used over my caree
 
 [//]: <> (This is a comment in markdown; below is a colasped list)
 
-### Brake down of each folder and the materials inside
+### Breakdown of each folder and the materials inside
 
 <details>
   <summary> common_analysis </summary>
@@ -118,6 +118,7 @@ This github repository is a collection of all the code I have used over my caree
 <details>
 
   <summary>Loos_unwrap_traj</summary>
+  <br>
 
   This file contains the code to unwrapp a trajecotry using loos. This way is the classical way of unwrapping a MD trajecotry. Before this set of code VMD was used to unwrapp trajectories, but vmd can not be run on many HPC clusters. This code however can beacuse all you need for LOOS to work is a conda environment. 
 
@@ -128,11 +129,42 @@ This github repository is a collection of all the code I have used over my caree
 - displacment_method_unwrapp.py
   - This code uses a modified method unwrapp a MD trajecotry. The idea for this code came from this [paper](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00308). The authors make a vaild point in that in constant pressure simualtuions the fluxation of the PBC box size in not accounted for. They show that for NTP simulations new factors have to be added. See the explanation box for the mathmatically basis of the code.
  
-  >**Explanation of the heuristic unwrapping method**
+>**Explanation of the heuristic unwrapping method**
+>
+> Both of these codes use a math trick to reduce the number of for loops needed to check if an atom has crossed the periodic boundry (PB).
+>
+> The code makes use of math devloped for orthormobic, aka. cubic, cystral latices by the use of a floor function.
+> ![cubic lattice unit cell](https://github.com/krb0095/all_code_kyle/blob/main/image/cubic_lattic.png)
+>
+> This however limits the apllication to, the most common, rectanular unit cell
+> The equation used for unwrapping a simulation is:
+>
+>$$r_{u_{i}}(t+1) = r_{w_{i}}(t+1) - \lfloor \dfrac{r_{w_{i}}(t+1) - r_{u_{i}(t)}}{L(t+1)} + \dfrac{1}{2} \rfloor L(t+1)$$
+>
+>  - $r_{u_{i}}(t+1)$ is the unwrapped postion of the next frame
+>  - $r_{w_{i}}(t+1)$ is the wrapped postion of the next frame
+>  - $r_{u_{i}(t)}$   is the unwrapped postion of the current frame
+>  - $L(t+1)$         is the PBC cell demsions of the next frame
+>  - $\lfloor ... \rfloor$ is the floor function
+> 
+  > All of the operations in the equation are linear operaations mean that matrix algera can be applied to return the desried out come
   >
-  > Both of these code use a math trick to reduce the number of for loops needed to check if an atom has crossed the PB.
-  > orthormobic 
+  > This code works for NVT and NVE simulations but the changes in he box size caused by the perssure applied to the unit cell can result in placing a lipid in the wrong box. This causes a lipid to speed up altering MSD calucations apperaing to diffuse faster.
+  
 
+> **Explation of the displacment unwrapping code**
+>
+> Displacment unwrapping (also known as the  toroidal view) is based off of using the minimal displacment vectrors, and retains the dynamics of the atoms.
+>
+> This scheme should **Only be used on a single point not all atoms of a object** as appling this method to across multiple atoms can lead to bond stretching and dispruts disrupt the intermolcaulr iterations between molecuales
+>
+> This equation adds in a factor for the alteration of the box size due to pressure
+>
+> $$r_{u_{i}}(t+1) = r_{u}(t) + (r_{w_{i}}(t+1) - r_{w}(t)) - \lfloor \dfrac{r_{w_{i}}(t+1) - r_{w_{i}(t)}}{L(t+1)} + \dfrac{1}{2} \rfloor L(t+1)$$
+>
+> The fluxation in the wrapped postion of a given molecule, $(r_{w_{i}}(t+1) - r_{w}(t))$, is added to the unwrapped postion of the current frame $r_{u}(t)$. The floor fuction checks if the atoms have moved more than half of the pbc cell edge lenght(s) to return the next frames unwrapped postion.
+>
+> This approch retains the diffusive proerties of the selection while the distances are not 100% consevred. Making a better tool for NTP diffison calculations 
 </details>
 
 
