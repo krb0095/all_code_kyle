@@ -129,6 +129,8 @@ This github repository is a collection of all the code I have used over my caree
   - This code uses loos to unwrapp a trajecotry atom by atom of a given selection over the entire trajectory.  See the explanation box for the mathmatically basis of the code.
 - displacment_method_unwrapp.py
   - This code uses a modified method unwrapp a MD trajecotry. The idea for this code came from this [paper](https://pubs.acs.org/doi/full/10.1021/acs.jctc.3c00308). The authors make a vaild point in that in constant pressure simualtuions the fluxation of the PBC box size in not accounted for. They show that for NTP simulations new factors have to be added. See the explanation box for the mathmatically basis of the code.
+- mean_sqaure_displacment.py
+  - This code uses to loos to load a trajectory and find the mean sqaured displacment of the selcted group. In an errort not use memory the code uses a np mmemp to memory mapp the array cotaining every frames postion. Looping over a list of lags in the code we are given a the lag used and MSD for that lag traj.
  
 >**Explanation of the heuristic unwrapping method**
 >
@@ -170,6 +172,44 @@ This github repository is a collection of all the code I have used over my caree
 > This approch retains the diffusive proerties of the selection while the distances are not 100% consevred. Making a better tool for NTP diffison calculations 
 </details>
 
+<details>
+
+  <summary>gather_data_regression</summary>
+  <br> 
+  This file is all of the code used to collect the data for the linear regression of the bateriorhodopsin project. The code is built to find user defiend angles, dihedrals, and orinations of atoms given in a exmaple configruation file. 
+
+**Contains**
+
+- gather_data.py  
+  - This is the code to obtain all of the regression data. Within the code there is a class called callled readConfig the loads in the text file and obtains the information from the configuration file. The rest of the code is the function to calculte the all of the wanted vaules. This program can be run in a embrassingly paraelle manner with the use of muiltprocessing python libray
+- temp_config.txt
+  - This is my config file to collect all of the data we have. Each line starts with a keyword for the gather_data.py code to extract vaules from the line. Each key word is **_not_** case sensative. 
+  - **Key Word Breakdown:**
+    - **system:** all of the trajectory infromation for a given traj. The format is **system PREFIX PATH_TO_PSF PATH_TO_TRAJECOTRY**
+    - **DIHEDRAL:** atoms that the user wants to find the dihedral angle of. The format is **DIHEDRAL NAME_OF_ATOM1 NAME_OF_ATOM2  NAME_OF_ATOM3  NAME_OF_ATOM4**. These atoms are read by the program in order from left to right.
+    - **ANGLE:**  atoms that the user wants to find the dihedral angle of. The format is **ANGLE NAME_OF_ATOM1 NAME_OF_ATOM2  NAME_OF_ATOM3**. These atoms are read by the program in order from left to right.
+    - **SKIP** the number of frames to skip when doing the analysis. The format is **SKIP NUMBER_TO_SKIP**
+    - **STRIDE** how we many frames are inbetween measurements. Format is **Stride NUMER_TO_STRIDE**
+    - **OUT:** the path to where we want to output the data. The format is **OUT PATH_FOR_DATA_OUTPUT**
+    - **cores:** the number of cores to run the analysis on . The Format is **cores NUMBER_OF_CORES**
+    - **RETINAL:** This is the main selection of what to run the analysis over. The name retinal is in regrards to the ligand in the center of BR, but as long as there is only one instance of atom name The code will work for any LOOS selection. _for eaxmaple you could not run this over all the CA atoms in a given protein since we only have accounted for one atom instance_ **TODO: make the classes more flexable is I am able to.** The format is **Retinal LOOS_SELECTION_STRING**
+</details>
+
+<details>
+
+  <summary> lipid_analysis </summary>
+
+  <br>
+
+  This flie is code that is used for the common analysis of lipid bilayers that are _not_ alread in LOOS.
+
+  **Contains** 
+
+  - membrane_compression_constant.py
+    - This code takes a file cotaining the area per lipids over a trajecorty and finds the constant for how comperssable the bialyer is. The bilayer patch size is a major factor in how compressable a bilayer is.
+  - protein_area_per_lipid.sh
+    - This code is a wrapper around the LOOS code for run_areas. The run areas used a vorino decompostion to find the area of points in a given space. This becomes handy for membrane protein simualtion, because the area per lipid code is normally calcualted by using the PBC box X and Y lenghts. However, membrane protein take up space in the membrane which would inflate the area per lipid via the conventail memthods. This code find the area for the whole membrane patch (including the protein) , and the portion of the membrane that cotains just the lipid selection. 
+</details>
 
 
 
