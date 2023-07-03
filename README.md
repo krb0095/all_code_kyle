@@ -14,7 +14,7 @@ This github repository is a collection of all the code I have used over my caree
 
 <details>
   <summary> common_analysis </summary>
-
+  <br>
   This folder contains code that should be run on almost every analyis for a trajecotry
 
   **Contains**
@@ -61,7 +61,7 @@ This github repository is a collection of all the code I have used over my caree
 
 <details>
   <summary> Missing_loop_tool </summary>
-
+  <br>
   This folder contains the pyton code and an example bash scirpt for modeling missing loops into a protein chain
   
   **Contains**
@@ -75,7 +75,7 @@ This github repository is a collection of all the code I have used over my caree
 
 <details>
   <summary> SS_analysis </summary>
-
+<br>
   This folder contains codes for find the SASA and secondary struccture analysis
 
   **Contains**
@@ -91,7 +91,7 @@ This github repository is a collection of all the code I have used over my caree
 
 <details>
   <summary> NAMD_ENERGY_VMD </summary>
-
+<br>
   This folder containt the VMD tcl files to run namd energy in vmd
 
   **Contains**
@@ -104,7 +104,7 @@ This github repository is a collection of all the code I have used over my caree
 <details>
 
   <summary>Installing_loos_conda</summary>
-
+<br>
   This file contains two bash scripts to setup both miniconda and [LOOS](https://github.com/GrossfieldLab/loos). 
 
   **Contains** 
