@@ -106,7 +106,7 @@ This github repository is a collection of all the code I have used over my caree
 
   <summary>Installing_loos_conda</summary>
 <br>
-  This file contains two bash scripts to setup both miniconda and [LOOS](https://github.com/GrossfieldLab/loos). 
+  This file contains two bash scripts to setup both miniconda and LOOS. 
 
   **Contains** 
   - setup_conda.sh
@@ -211,6 +211,17 @@ This github repository is a collection of all the code I have used over my caree
     - This code is a wrapper around the LOOS code for run_areas. The run areas used a vorino decompostion to find the area of points in a given space. This becomes handy for membrane protein simualtion, because the area per lipid code is normally calcualted by using the PBC box X and Y lenghts. However, membrane protein take up space in the membrane which would inflate the area per lipid via the conventail memthods. This code find the area for the whole membrane patch (including the protein) , and the portion of the membrane that cotains just the lipid selection. 
 </details>
 
+<details>
+
+<summary> create_solvent_box </summary>
+<br>
+This file is all of the code to make a solvent box from a singel PDB
+
+**Contains**
+- solvent_box_maker.py
+  - This code uses LOOS to create a box of solvent. The user gives the PDB, number of molecule, desired lenght of the box edeges ,and the name of the pdb to be created. The code will try to place as many of the solvent molecules into the box.
+  
+</details>
 
 
 
