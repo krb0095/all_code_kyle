@@ -226,7 +226,19 @@ This file is all of the code to make a solvent box from a singel PDB
 </details>
 
 
+<details>
 
+  <summary> regression_analysis </summary>
+
+  This code is all of the function used in the large number of jupter notebooks I have for the regression project
+  <br>
+  
+  **Contains**
+
+  - regression_functions.py
+    - This python code is just storage for the common functions I used during regression analysis for the Bacterio rhodopsin project. The code can be imported into another python script but calling in the command line will do nothing.
+  
+</details>
 
 
 
