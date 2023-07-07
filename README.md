@@ -230,6 +230,7 @@ This file is all of the code to make a solvent box from a singel PDB
 
   <summary> regression_analysis </summary>
 
+  <br>
   This code is all of the function used in the large number of jupter notebooks I have for the regression project
   <br>
   
