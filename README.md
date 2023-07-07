@@ -1,5 +1,5 @@
 ### Kyle Billings Ph.D student at WVU mertz lab 
-This github repository is a collection of all the code I have used over my career. I will try to keep this page updated as much as I can, and feel free to reach out if you so choose. The README.md gives a brief break down of the codes, files, and directories here. I am in the process of ensuring all of the python codes are PEP 8 format and that all other are as clear as possible but this will take some time. Spelling mistakes are certian in all of the code because of dyslexia, but I will try my best to fix any of those types of errors. 
+This github repository is a collection of all the code I have used over my career. I will try to keep this page updated as much as I can, and feel free to reach out if you so choose. The README.md gives a brief break down of the codes, files, and directories here. I am in the process of ensuring all of the python codes are PEP 20 format and that all other are as clear as possible but this will take some time. Spelling mistakes are certian in all of the code because of dyslexia, but I will try my best to fix any of those types of errors. 
 ### List of files in the base directory 
 | Filename      | content of file |
 |:----------------------------------:|:---------------------------------------:|
@@ -87,6 +87,8 @@ This github repository is a collection of all the code I have used over my caree
     - A TCL code made to run vmd to find the Secondary strucutre (SS) of residues perframe of the trajecotry. This is done over a user redifned range of residue indexs. This takes the psf, dcd, 1st residue, last reisude and preix of the run. Returns the frame index each resdiues SS and the precent helicity of that selection at a given frame.  The code sources the path to useful function tcl code so the path will have to altered to adjust to your needs.
   - usefull_fxns.tcl
     - A TCL set of functions to find the SS and SASA of one frame of a given slection in VMD. Must be soruced into the tcl code used in VMD for analysis.
+  - obtain_SS_From_STRIDE_binaray.sh
+    - A bash code for using the STRIDE bininary to find SS in the same format output as VMD would. This code requires a LOOS installation, and the binaiary of STRIDE To be on the computer. I use this on the HPC cluster where VMD is not able to be installed due to missing the GUI libraies. This code find the number of frames using dcdinfo from loos, loop over the indexs of frames (number of frames -1) , creates a temparty pdb for the given loos selection, uses STRIDE to get the letter code SS result, then bash is used to % helical content in that frames pdb, finally outputiing both the letter codes and the % helical content. The limting factor in the speed this code is the pure number of IO operations to write each frame as pdb/writting each line for the SS/ removing the temp pdb, but I still have not found a way to pipe the out of frame2pdb stright into the stride binanry code.
 
 </details>
 
