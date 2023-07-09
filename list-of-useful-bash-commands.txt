@@ -14,3 +14,14 @@ ServerAliveInterval 600
 "
 
  
+# for hpc use you can use sed to rplace line of thecode to fit your submission script need
+# then just pip the output into the job sumbssion stuff 
+# exmaple 
+sed 's/TEMPNAME/REALNAME/g' config.slurm | [commnad to submit] 
+
+# trajecotry files are large at times
+# you can make a symbloic link to the file that for loos at least 
+# functions as the file
+ln -s [name of traj] [name you want thelink to have]
+# testing the link
+dcdinfo [new link name]
