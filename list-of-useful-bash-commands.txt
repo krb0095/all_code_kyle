@@ -29,4 +29,8 @@ dcdinfo [new link name]
 
 # for srun you can use a loop if you give it 
 srun --exclusive --ntasks 1 -c 1 [command] &
-# to run two commands you can still use && without changing the number of tasks
+
+ # sequentally run a series of comands 
+{ command1; command2; }  # independat of the sucess of each command 
+# && needs command to work fully
+
