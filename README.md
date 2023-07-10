@@ -241,7 +241,28 @@ This file is all of the code to make a solvent box from a singel PDB
   
 </details>
 
+<details>
+  <br>
+  
+  <summary>slurm_submission_templates</summary>
+  
+  <br>
+  
+  This folder has a good example of bash scripts to run on a HPC with the slurm manager. 
+  
+  <br>
 
+  
+  **Contains**
+  - base_sub_commands.sh
+    - This bash script is one half of a submission script that I have written. This part is the commands what we are telling the HPC to run for us. All the paths here are absoulte so if you need to use you will have to change them manually. Here I am running a command that runs on core each and need to run through a series of these commands, and sets them to run all at the same time to use the power of parelle computing. the & at the end of the srun put that command in the background and as long as there is a wait to re-pool all of the cores together this code will work submitting a batch of processes.
+  - slurm_header.slurm
+    - This file is a header for slurm with place holder variables for each flag. By concatanting this file with the base_sub_commands.sh we create a template file for a slurm job that we can edit as needed
+  - create_clean_sub.sh
+    - This simple bash script is not needed for most people but I have a histoy of overwriting my template file. This code just creates an excutable slrum script with a wanted name so that I do not have to mess with the templates
+  - template_analysis.slurm
+    - This is the slurm submission script used in create_clean_sub.sh as the template for the BPR photocylce. All the paths in the file are hard coded so them have to be change for your use. The broad overveiw for this code I run the same command for analysis , create the out directory. Instead of moving the large dcd files, I created a symlink to that file. using readlin -f name_of_link we can pass those files absolute path.
+</details>
 
 
     
