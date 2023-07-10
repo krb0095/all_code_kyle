@@ -25,3 +25,8 @@ sed 's/TEMPNAME/REALNAME/g' config.slurm | [commnad to submit]
 ln -s [name of traj] [name you want thelink to have]
 # testing the link
 dcdinfo [new link name]
+
+
+# for srun you can use a loop if you give it 
+srun --exclusive --ntasks 1 -c 1 [command] &
+# to run two commands you can still use && without changing the number of tasks
