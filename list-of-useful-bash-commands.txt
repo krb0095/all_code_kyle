@@ -34,3 +34,8 @@ srun --exclusive --ntasks 1 -c 1 [command] &
 { command1; command2; }  # independat of the sucess of each command 
 # && needs command to work fully
 
+
+# to run an order of coomand in a srun line we have to 
+# 1 save the commands to a varalbe 
+# 2 in the srun [options ] echo $[name of variable]
+
